@@ -121,21 +121,21 @@
   </head>
   <body>
     <div class="container">
-      <h2 class="header">������� ���� ������:</h2>
+      <h2 class="header">Введите свой вопрос:</h2>
       <div class="container-text">
         <textarea rows="5" cols="33" class="text"></textarea>
         <div class="containerCloseBtn hidden">
           <div class="closeBtn"></div>
         </div>
       </div>
-      <button type="button" class="btn">��������!</button>
+      <button type="button" class="btn">Спросить!</button>
       <div class="answer"></div>
     </div>
   </body>
   <script>
-    const arrYes = ["��", "�������", "�� ������", "����������"];
-    const arrNo = ["���", "�� ����", "�� � ���� ������", "�� �����"];
-    const arrMb = ["��������", "��������", "����� ���", "����� ����"];
+    const arrYes = ["да", "конечно", "по любому", "несомненно"];
+    const arrNo = ["нет", "не смей", "ни в коем случае", "не стоит"];
+    const arrMb = ["возможно", "вероятно", "думай сам", "может быть"];
 
     const btn = document.querySelector(".btn");
     const clean = document.querySelector(".containerCloseBtn");
@@ -159,7 +159,7 @@
     btn.addEventListener("click", () => {
       console.log(textLength);
       if (textLength === minLength) {
-        text.value = "������� ������...";
+        text.value = "Введите вопрос...";
         textLength = 0;
         answer.textContent = "";
         return;
@@ -182,7 +182,7 @@
     });
 
     text.addEventListener("click", () => {
-      if (text.value === "������� ������...") {
+      if (text.value === "Введите вопрос...") {
         text.value = "";
       } else {
         return;
