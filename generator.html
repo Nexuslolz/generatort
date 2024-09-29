@@ -1,196 +1,200 @@
 <html>
-	<head>
-		<style>
-			body {
-			 display: flex;
-			 justify-content: center;
-			}
+  <head>
+    <link type="Image/x-icon" href="/favicon.ico" rel="icon" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
 
-			.container {
-			 width: 500px;
-			 display: flex;
-			 flex-direction: column;
-			 align-items: center;
-			 gap: 2em;
-			}
+      .container {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+      }
 
-			.text {
-			 resize: none;
-			 border: none;
-			 border-radius: 10px;
-			 box-shadow: 0 0 15px 4px #dfe5ff;
-			 outline: none;
-			 padding: 1em;
-			 transition: 0.2s;
-			 background-color: #f9fbff;
-			 padding-top: 1.5em;
-			}
+      .text {
+        resize: none;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 4px #dfe5ff;
+        outline: none;
+        padding: 1em;
+        transition: 0.2s;
+        background-color: #f9fbff;
+        padding-top: 1.5em;
+      }
 
-			.text:focus {
-			 box-shadow: 0 0 5px 2px #dfe5ff;
-			 transition: 0.2s;
-			 background-color: white;
-			}
+      .text:focus {
+        box-shadow: 0 0 5px 2px #dfe5ff;
+        transition: 0.2s;
+        background-color: white;
+      }
 
-			.text:hover {
-			 box-shadow: 0 0 10px 2px #dfe5ff;
-			}
+      .text:hover {
+        box-shadow: 0 0 10px 2px #dfe5ff;
+      }
 
-			.btn {
-			 border: none;
-			 background-color: #dfe5ff;
-			 border-radius: 5px;
-			 padding: 0.5em;
-			 width: 100px;
-			 box-shadow: 0 0 1px 3px #dfe5ff;
-			 transition: 0.2s;
-			}
+      .btn {
+        border: none;
+        background-color: #dfe5ff;
+        border-radius: 5px;
+        padding: 0.5em;
+        width: 100px;
+        box-shadow: 0 0 1px 3px #dfe5ff;
+        transition: 0.2s;
+      }
 
-			.btn:hover {
-			 cursor: pointer;
-			 box-shadow: 0 0 5px 1px lightgray;
-			 transition: 0.2s;
-			}
+      .btn:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px 1px lightgray;
+        transition: 0.2s;
+      }
 
-			.btn:active {
-			 transform: scale(0.95);
-			 box-shadow: 0 0 5px 1px #dfe5ff;
-			}
+      .btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 5px 1px #dfe5ff;
+      }
 
-			.container-text {
-			 position: relative;
-			}
+      .container-text {
+        position: relative;
+      }
 
-			.containerCloseBtn {
-			 position: absolute;
-			 top: 0.5em;
-			 right: 0.5em;
-			 width: 20px;
-			 height: 20px;
-			 visibility: visible;
-			 opacity: 1;
-			 transition: 0.2s;
-			}
+      .containerCloseBtn {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        width: 20px;
+        height: 20px;
+        visibility: visible;
+        opacity: 1;
+        transition: 0.2s;
+      }
 
-			.containerCloseBtn:hover {
-			 cursor: pointer;
-			 transition: 0.2s;
-			}
+      .containerCloseBtn:hover {
+        cursor: pointer;
+        transition: 0.2s;
+      }
 
-			.closeBtn {
-			 content: '';
-			 position: absolute;
-			 top: 0.3em;
-			 right: 0em;
-			 width: 15px;
-			 height: 1px;
-			 background-color: black;
-			 transform: rotate(45deg);
-			}
+      .closeBtn {
+        content: "";
+        position: absolute;
+        top: 0.3em;
+        right: 0em;
+        width: 15px;
+        height: 1px;
+        background-color: black;
+        transform: rotate(45deg);
+      }
 
-			.closeBtn::before {
-			 content: '';
-			 position: absolute;
-			 top: 0em;
-			 right: 0em;
-			 width: 15px;
-			 height: 1px;
-			 background-color: black;
-			 transform: rotate(90deg);
-			}
+      .closeBtn::before {
+        content: "";
+        position: absolute;
+        top: 0em;
+        right: 0em;
+        width: 15px;
+        height: 1px;
+        background-color: black;
+        transform: rotate(90deg);
+      }
 
-			.answer {
-			 font-size: 32px;
-			 text-transform: uppercase;
-			 margin-top: 1em;
-			}
+      .answer {
+        font-size: 32px;
+        text-transform: uppercase;
+        margin-top: 1em;
+      }
 
-			.visible {
-			 opacity: 1;
-			 visibility: visible;
-			 transition: 0.2s;
-			}
+      .visible {
+        opacity: 1;
+        visibility: visible;
+        transition: 0.2s;
+      }
 
-			.hidden {
-			 opacity: 0;
-			 visibility: hidden;
-			 transition: 0.2s;
-			}
-		</style>
-	</head>
-	<body>
-		<div class='container'>
-			<h2 class='header'>Введите свой вопрос:</h2>
-			<div class='container-text'>
-				<textarea rows='5' cols='33' class='text'></textarea>
-				<div class='containerCloseBtn hidden'>
-					<div class='closeBtn'></div>
-				</div>
-			</div>
-			<button type='button' class='btn'>Спросить!</button>
-			<div class='answer'></div>
-		</div>
-	</body>
-	<script>
-		const arrYes = ['да', 'конечно', 'по любому', 'несомненно']
-		const arrNo = ['нет', 'не смей', 'ни в коем случае', 'не стоит']
-		const arrMb = ['возможно', 'вероятно', 'думай сам', 'может быть']
+      .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="header">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:</h2>
+      <div class="container-text">
+        <textarea rows="5" cols="33" class="text"></textarea>
+        <div class="containerCloseBtn hidden">
+          <div class="closeBtn"></div>
+        </div>
+      </div>
+      <button type="button" class="btn">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!</button>
+      <div class="answer"></div>
+    </div>
+  </body>
+  <script>
+    const arrYes = ["пїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"];
+    const arrNo = ["пїЅпїЅпїЅ", "пїЅпїЅ пїЅпїЅпїЅпїЅ", "пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ"];
+    const arrMb = ["пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ"];
 
-		const btn = document.querySelector('.btn')
-		const clean = document.querySelector('.containerCloseBtn')
-		const text = document.querySelector('.text')
-		const answer = document.querySelector('.answer')
+    const btn = document.querySelector(".btn");
+    const clean = document.querySelector(".containerCloseBtn");
+    const text = document.querySelector(".text");
+    const answer = document.querySelector(".answer");
 
-		const wholeArr = [...arrYes, ...arrNo, ...arrMb]
-		const answerLength = wholeArr.length
-		const minLength = 0;
+    const wholeArr = [...arrYes, ...arrNo, ...arrMb];
+    const answerLength = wholeArr.length;
+    const minLength = 0;
 
-		let textLength = 0;
-		let answerNum
-		
-		const fn = () => {
-			answerNum = Math.floor(Math.random()*(answerLength - minLength) + minLength)
-			answer.textContent = wholeArr[answerNum]
-		}
+    let textLength = 0;
+    let answerNum;
 
-		btn.addEventListener('click', () => {console.log(textLength)
-			if(textLength === minLength) {
-				text.value = 'Введите вопрос...'
-				textLength = 0
-				answer.textContent = ''
-				return
-			} else {
-				fn()
-			}
-		})
+    const fn = () => {
+      answerNum = Math.floor(
+        Math.random() * (answerLength - minLength) + minLength
+      );
+      answer.textContent = wholeArr[answerNum];
+    };
 
-		text.addEventListener('input', () => {
-			textLength = text.value.length
+    btn.addEventListener("click", () => {
+      console.log(textLength);
+      if (textLength === minLength) {
+        text.value = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ...";
+        textLength = 0;
+        answer.textContent = "";
+        return;
+      } else {
+        fn();
+      }
+    });
 
-			if(textLength > 0) {
-				clean.classList.remove('hidden')
-				clean.classList.add('visible')
-			} else {
-				clean.classList.remove('visible')
-				clean.classList.add('hidden')
-				answer.textContent = ''
-			}
-		})
+    text.addEventListener("input", () => {
+      textLength = text.value.length;
 
-		text.addEventListener('click', () => {
-			if(text.value === 'Введите вопрос...') {
-				text.value = ''
-			} else {
-				return
-			}	
-		})
+      if (textLength > 0) {
+        clean.classList.remove("hidden");
+        clean.classList.add("visible");
+      } else {
+        clean.classList.remove("visible");
+        clean.classList.add("hidden");
+        answer.textContent = "";
+      }
+    });
 
-		clean.addEventListener('click', () => {
-			text.value = ''
-			textLength = text.value.length
-			clean.classList.remove('visible')
-			clean.classList.add('hidden')
-			answer.textContent = ''
-		})
-	</script>
+    text.addEventListener("click", () => {
+      if (text.value === "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ...") {
+        text.value = "";
+      } else {
+        return;
+      }
+    });
+
+    clean.addEventListener("click", () => {
+      text.value = "";
+      textLength = text.value.length;
+      clean.classList.remove("visible");
+      clean.classList.add("hidden");
+      answer.textContent = "";
+    });
+  </script>
 </html>
